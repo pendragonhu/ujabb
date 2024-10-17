@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<style>
+
+
+
+
+#mainn, nav{
+float: left;
+
+}
+
+#mainn{
+
+width: 85%;
+}
+
+
+
+.card{
+float:left;
+margin:10px;
+height:390px;
+}
+
+.hello::after{
+content: " Ft";
+
+}
+
+</style>
+</head>
+<body onload="csekkol()">
+
+<header style="text-align:center;"><h1>Balázs bácsi LEGO boltja</h1></header>
+<nav>
+<fieldset>
+    <legend>Kategóriák</legend>
+<div class="form-check form-switch">
+<input class="form-check-input" type="checkbox" name="elso" id="elso" onclick="csekkol()" checked role="switch" ><label  class="form-check-label" for="elso">LEGO STAR WARS</label><br>
+
+<input class="form-check-input" type="checkbox" name="masodik" id="masodik" onclick="csekkol()" checked role="switch" ><label class="form-check-label" for="masodik">LEGO PIRATES</label><br>
+
+<input class="form-check-input" type="checkbox" name="harmadik" id="harmadik" onclick="csekkol()" checked role="switch" ><label  class="form-check-label" for="harmadik">LEGO CASTLE</label><br>
+
+<input class="form-check-input" type="checkbox" name="negyedik" id="negyedik" onclick="csekkol()" checked role="switch" ><label  class="form-check-label" for="negyedik">LEGO IDEAS</label><br>
+
+<input class="form-check-input" type="checkbox" name="otodik" id="otodik" onclick="csekkol()" checked role="switch" ><label  class="form-check-label" for="otodik">LEGO MOTORIZED</label><br>
+
+<button onclick="document.getElementById('masodik').checked=false; document.getElementById('elso').checked=false;
+document.getElementById('harmadik').checked=false;
+document.getElementById('negyedik').checked=false;
+document.getElementById('otodik').checked=false; csekkol();">Egyik se</button>
+</div>
+</fieldset>
+</nav>
+<div id="mainn"></div>
+<script>
+
+
+let tomb2_all=[{kep:"1.jpg", neve:"Birodalmi könnyű cirkáló", ar:50000},{kep:"2.jpg", neve:"AT-TE lépegető", ar:40000},{kep:"3.jpg", neve:"Kincses sziget", ar:25000},{kep:"4.jpg", neve:"Zsákmány sziget", ar:15000},{kep:"5.jpg", neve:"Falu", ar:43000},{kep:"6.jpg", neve:"Tornyos hadigép", ar:33000},{kep:"7.jpg", neve:"Kovácsműhely", ar:66000},{kep:"8.jpg", neve:"Lombház", ar:72000},{kep:"9.jpg", neve:"Világítótorony", ar:110000},{kep:"10.jpg", neve:"Motor készlet", ar:40000}];
+let tomb2_aktual=[];
+
+
+
+
+function csekkol()
+{
+	tomb2_aktual=[];
+	if (document.getElementById('elso').checked) 
+	{
+	tomb2_aktual.push(tomb2_all[0]);
+	tomb2_aktual.push(tomb2_all[1]);
+	}
+	
+	if (document.getElementById('masodik').checked) 
+	{
+	tomb2_aktual.push(tomb2_all[2]);
+	tomb2_aktual.push(tomb2_all[3]);
+	}
+	
+	if (document.getElementById('harmadik').checked) 
+	{
+	tomb2_aktual.push(tomb2_all[4]);
+	tomb2_aktual.push(tomb2_all[5]);
+	}
+	
+	if (document.getElementById('negyedik').checked) 
+	{
+	tomb2_aktual.push(tomb2_all[6]);
+	tomb2_aktual.push(tomb2_all[7]);
+	}
+	
+	if (document.getElementById('otodik').checked) 
+	{
+	tomb2_aktual.push(tomb2_all[8]);
+	tomb2_aktual.push(tomb2_all[9]);
+	}
+	
+	renderel();
+}
+
+function renderel()
+{	
+	document.getElementById("mainn").innerHTML="";
+	for(let i=0;i<tomb2_aktual.length;i++){
+	document.getElementById("mainn").innerHTML+="<div class='card' style='width: 18rem;'><img src='img/"+tomb2_aktual[i].kep+"' class='card-img-top'><div class='card-body'><h5 class='card-title'>"+tomb2_aktual[i].neve+"</h5><a href='#' class='btn btn-primary'>"+tomb2_aktual[i].ar+"</a></div></div>";
+	
+	}
+
+}
+
+
+
+</script>
+
+
+<p class="hello">120</p>
+
+
+  
+</body>
+</html>
